@@ -9,7 +9,7 @@ for PYBIN in /opt/python/*/bin; do
        [[ "${PYBIN}" == *"cp36"* ]] || \
        [[ "${PYBIN}" == *"cp37"* ]] || \
        [[ "${PYBIN}" == *"cp38"* ]]; then
-        if [[ ${TRAVIS_CPU_ARCH} == "arm64" ]]; then
+        if [ `uname -m` == 'aarch64' ]; then
          "${PYBIN}/pip" install virtualenv
          "${PYBIN}/python" -m virtualenv .venv
          source .venv/bin/activate
