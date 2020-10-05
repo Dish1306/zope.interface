@@ -15,7 +15,7 @@ for PYBIN in /opt/python/*/bin; do
          cd /io/
          "${PYBIN}/pip" install tox
          toxenv = "py`echo "${PYBIN}" | cut -f 4 -d"/" | cut -f 1 -d"-" | cut -c3-`"
-         "${PYBIN}/python" -m tox -e "$toxenv"
+         "${PYBIN}/python" -m tox -e ${toxenv}
          cd ..
         fi
         rm -rf /io/build /io/*.egg-info
