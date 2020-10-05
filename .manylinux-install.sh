@@ -14,7 +14,7 @@ for PYBIN in /opt/python/*/bin; do
         if [ `uname -m` == 'aarch64' ]; then
          cd /io/
          "${PYBIN}/pip" install tox /io/
-         tox -e $toxenv py`echo "${PYBIN}" | cut -f 4 -d"/" | cut -f 1 -d"-" | cut -c3-`
+         "${PYBIN}/python" -m tox -e $toxenv py`echo "${PYBIN}" | cut -f 4 -d"/" | cut -f 1 -d"-" | cut -c3-`
          cd ..
         fi
         rm -rf /io/build /io/*.egg-info
