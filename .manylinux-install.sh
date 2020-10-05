@@ -13,7 +13,7 @@ for PYBIN in /opt/python/*/bin; do
         "${PYBIN}/pip" wheel /io/ -w wheelhouse/
         if [ `uname -m` == 'aarch64' ]; then
          cd /io/
-         "${PYBIN}/pip" install tox /io/
+         "${PYBIN}/pip" install tox
          "${PYBIN}/python" -m tox -e $toxenv py`echo "${PYBIN}" | cut -f 4 -d"/" | cut -f 1 -d"-" | cut -c3-`
          cd ..
         fi
